@@ -1,0 +1,37 @@
+Привет, <%= @current_user.name %>!
+<br>
+<p id="notice"><%= notice %></p>
+
+<h1>Контакты</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Имя</th>
+      <th>Фамилия</th>
+      <th>Email</th>
+      <th>Номер тел.</th>
+      <th>Доп. Информация</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.name %></td>
+        <td><%= contact.surname %></td>
+        <td><%= contact.email %></td>
+        <td><%= contact.phone %></td>
+        <td><%= contact.optional %></td>
+        <td><%= link_to 'Подробнее', contact %></td>
+        <td><%= link_to 'Изменить', edit_contact_path(contact) %></td>
+        <td><%= link_to 'Удалить', contact, method: :delete, data: { confirm: 'Вы уверены, что хотите удалить контакт?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Новый контакт', new_contact_path %>

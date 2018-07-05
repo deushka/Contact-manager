@@ -1,0 +1,9 @@
+<% if !logged_in? %>
+
+<% else %>
+  <%= link_to "Главная", root_path %>
+  <%=" | "%>
+  <%= link_to "Контакты", contacts_path %>
+  <%=" | "%>
+  <%= link_to "Выйти", logout_path, method: :delete %>
+<% end %>

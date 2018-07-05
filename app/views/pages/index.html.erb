@@ -1,0 +1,10 @@
+
+<% if logged_in? %>
+  <%= "Вы #{@current_user.name} #{@current_user.surname}" %>
+  <br>
+  <%= "Кол-во контактов: #{contacts_count?}" %>
+<% else %>
+  <%= button_to "Зайти", login_path, method: :get%>
+  <br>
+  <%= button_to "Зарегистрироваться", signup_path, method: :get %>
+<% end %>
