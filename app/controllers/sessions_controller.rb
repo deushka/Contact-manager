@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if (user && user.authenticate(params[:session][:password]))
       # GO TO ADMINPAGE
       log_in user
-      redirect_to profile_path
+      redirect_to contacts_path
     else
       flash.now[:danger] = "Invalid login or password"
       render 'new'
