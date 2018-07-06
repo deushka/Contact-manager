@@ -5,6 +5,9 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    if !logged_in?
+      redirect_to root_path
+    end
   end
 
   # GET /users/1

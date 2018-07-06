@@ -1,13 +1,13 @@
 <% if !flash[:danger].nil? %>
   <h1><%= flash[:danger] %></h1>
 <% end %>
-<h1>User login</h1>
+<h1>Форма входа</h1>
 
 <%= form_for(:session, url: login_path) do |f|%>
     <%= f.label :email %>
   	<%= f.text_field :email, placeholder: "E-Mail" %>
 
-    <%= f.label :password %>
-		<%= f.password_field :password, placeholder: "Password" %>
-	<%= f.submit "Login" %>
+    <%= f.label :password, "Пароль" %>
+		<%= f.password_field :password, placeholder: "Пароль" %>
+	<%= f.submit "Зайти" %>
 <% end %>

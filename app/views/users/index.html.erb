@@ -21,8 +21,9 @@
         <td><%= user.email %></td>
         <td><%= user.password %></td>
         <td><%= link_to 'Подробнее', user %></td>
-        <td><%= link_to 'Изменить', edit_user_path(user) %></td>
-        <td><%= link_to 'Удалить', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if user.id == @current_user.id %>
+          <td><%= link_to 'Удалить', user, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
